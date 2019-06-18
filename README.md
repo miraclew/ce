@@ -4,7 +4,7 @@ Common error package to wrap http error status
 
 ## Return errors
 
-```
+```go
 func (arg *CreateOrderArg) Validate() error {
 	if arg.Order.ProductID == 0 {
 		return ce.NewValidateError("ProductID required")
@@ -21,7 +21,7 @@ func (arg *CreateOrderArg) Validate() error {
 
 ## Error handling
 
-```
+```go
 if err != nil {
   if ve, ok := err.(*ce.Error); ok && ve.Unauthorized() {
     return echo.NewHTTPError(http.StatusUnauthorized, "token invalid")
